@@ -34,3 +34,33 @@ Ensure you have the following installed:
     ```bash
      npm run dev
      ```
+
+4. Open your browser and navigate to `http://localhost:3000`.
+
+## Technologies Used
+
+- **Frontend**: React, TypeScript, Tailwind CSS
+- **Build Tool**: Vite
+- **AI Agent**: (In development) Leveraging modern AI frameworks for multilingual support.
+
+## Contributing
+
+We welcome contributions to improve Teal Trust Wallet! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature-name`).
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For any inquiries or feedback, please reach out to us at [your-email@example.com].
+
+---
+
+Thank you for choosing Teal Trust Wallet. Together, let's make investing in the Nairobi Stock Exchange accessible to everyone!
