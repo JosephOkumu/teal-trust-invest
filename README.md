@@ -1,69 +1,10 @@
-# Welcome to your Lovable project
+# Teal Trust Wallet
 
-## Project info
+Teal Trust Wallet is a modern, user-friendly platform designed to simplify the process of investing in the Nairobi Stock Exchange (NSE). Our mission is to make investing accessible to everyone, especially individuals in local areas, by removing the complexities traditionally associated with stock market investments.
 
-**URL**: https://lovable.dev/projects/5c9bbf6c-1211-4071-8d0c-ec2b99794ae4
+## Features
 
-## How can I edit this code?
+- **Seamless Investment Process**: A smooth and intuitive interface that makes it easy for anyone to invest in the NSE without a hectic process.
+- **AI Agent (In Development)**: A multilingual AI assistant that supports both Kiswahili and English, ensuring inclusivity for local language speakers. This feature is designed to provide guidance and support to users, making the platform even more accessible.
+- **Local Focus**: Tailored for the needs of people in local areas, ensuring that everyone has the opportunity to grow their wealth through investments.
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/5c9bbf6c-1211-4071-8d0c-ec2b99794ae4) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/5c9bbf6c-1211-4071-8d0c-ec2b99794ae4) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
