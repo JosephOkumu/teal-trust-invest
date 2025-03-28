@@ -59,7 +59,7 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-For any inquiries or feedback, please reach out to us at [your-email@example.com].
+For any inquiries or feedback, please reach out to us at [tealtrust@gmail.com]().
 
 ---
 
