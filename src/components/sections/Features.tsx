@@ -1,49 +1,28 @@
 
-import { 
-  BarChart3, Brain, CreditCard, Shield, Globe, Coins, 
-  TrendingUp, Clock, LightbulbIcon, PieChart, History, Wallet 
+import {
+  Brain, MessageSquare, Shield, Wallet
 } from 'lucide-react';
 
 const features = [
   {
-    icon: <BarChart3 className="h-6 w-6 text-teal-500" />,
-    title: "Stock Viewing",
-    description: "Browse and analyze the entire Kenyan stock market with real-time data and historical trends."
-  },
-  {
     icon: <Brain className="h-6 w-6 text-teal-500" />,
-    title: "AI Analysis",
-    description: "Receive intelligent stock recommendations and market insights powered by advanced AI algorithms."
+    title: "Agent Driven AI Analysis",
+    description: "Get intelligent insights and recommendations from our advanced AI-powered analysis system."
   },
   {
-    icon: <CreditCard className="h-6 w-6 text-teal-500" />,
-    title: "Simplified Trading",
-    description: "Buy and sell stocks with a few taps, without the complexity of traditional brokerage accounts."
-  },
-  {
-    icon: <PieChart className="h-6 w-6 text-teal-500" />,
-    title: "Portfolio Management",
-    description: "Track performance, analyze diversification, and optimize your investment strategy."
+    icon: <MessageSquare className="h-6 w-6 text-teal-500" />,
+    title: "Process & Chat Assistant",
+    description: "24/7 support with our intelligent chat assistant to guide you through every investment step."
   },
   {
     icon: <Shield className="h-6 w-6 text-teal-500" />,
-    title: "Blockchain Security",
-    description: "Enjoy the security of Hedera blockchain technology for all your transactions and holdings."
-  },
-  {
-    icon: <LightbulbIcon className="h-6 w-6 text-teal-500" />,
-    title: "Expert Insights",
-    description: "Access personalized investment advice and market education tailored to your goals."
-  },
-  {
-    icon: <History className="h-6 w-6 text-teal-500" />,
-    title: "Transaction History",
-    description: "View your complete trading history with detailed performance metrics and tax reporting."
+    title: "Hedera Blockchain Technology",
+    description: "Secure and transparent transactions powered by enterprise-grade Hedera blockchain."
   },
   {
     icon: <Wallet className="h-6 w-6 text-teal-500" />,
-    title: "Integrated Wallet",
-    description: "Manage your funds securely and easily deposit or withdraw using popular payment methods."
+    title: "M-Pesa Support",
+    description: "Seamless deposits and withdrawals through M-Pesa for convenient trading."
   }
 ];
 
