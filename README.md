@@ -25,3 +25,12 @@ Ensure you have the following installed:
    ```bash
    git clone https://github.com/JosephOkumu/teal-trust-invest.git
    cd teal-trust-wallet
+
+2. Install dependencies:
+    ```bash
+     npm install
+    ```
+3. Start the development server:
+    ```bash
+     npm run dev
+     ```
