@@ -74,9 +74,9 @@ const Header = ({ isLoggedIn = false }: HeaderProps) => {
         {!isLoggedIn ? (
           // Not logged in - landing page navigation
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#about" className={cn('nav-link', isActive('#about') && 'active')}>
+            <Link to="/about" className={cn('nav-link', isActive('/about') && 'active')}>
               About Us
-            </a>
+            </Link>
             <a href="#how-it-works" className={cn('nav-link', isActive('#how-it-works') && 'active')}>
               How It Works
             </a>
@@ -245,9 +245,9 @@ const Header = ({ isLoggedIn = false }: HeaderProps) => {
           {!isLoggedIn ? (
             // Not logged in navigation
             <>
-              <a href="#about" className={cn('nav-link text-xl', isActive('#about') && 'active')}>
+              <Link to="/about" className={cn('nav-link text-xl', isActive('/about') && 'active')}>
                 About Us
-              </a>
+              </Link>
               <a href="#how-it-works" className={cn('nav-link text-xl', isActive('#how-it-works') && 'active')}>
                 How It Works
               </a>
