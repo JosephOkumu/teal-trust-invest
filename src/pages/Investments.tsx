@@ -283,27 +283,33 @@ const Investments = () => {
                               <div className="flex space-x-1">
                                 <Button 
                                   variant="ghost" 
-                                  size="icon" 
+                                  size="sm" 
                                   onClick={() => openDetailModal(investment)}
-                                  className="h-8 w-8"
+                                  className="flex items-center gap-1 h-8"
+                                  title="View details"
                                 >
                                   <Eye className="h-4 w-4" />
+                                  <span className="hidden sm:inline text-xs">Details</span>
                                 </Button>
                                 <Button 
                                   variant="ghost" 
-                                  size="icon" 
+                                  size="sm" 
                                   onClick={() => openWithdrawModal(investment)}
-                                  className="h-8 w-8"
+                                  className="flex items-center gap-1 h-8"
+                                  title="Withdraw funds"
                                 >
                                   <Wallet className="h-4 w-4" />
+                                  <span className="hidden sm:inline text-xs">Withdraw</span>
                                 </Button>
                                 <Button 
                                   variant="ghost" 
-                                  size="icon" 
+                                  size="sm" 
                                   onClick={() => openInvestModal(investment)}
-                                  className="h-8 w-8"
+                                  className="flex items-center gap-1 h-8"
+                                  title="Reinvest"
                                 >
                                   <RefreshCw className="h-4 w-4" />
+                                  <span className="hidden sm:inline text-xs">Reinvest</span>
                                 </Button>
                               </div>
                             </TableCell>
