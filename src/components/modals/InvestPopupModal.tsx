@@ -89,12 +89,24 @@ const InvestPopupModal = ({ isOpen, onClose, stock }: InvestPopupModalProps) => 
             {/* Buy/Sell Options */}
             <div className="mb-4">
               <Label>Trade Action</Label>
-              <Tabs defaultValue="buy" className="w-full" onValueChange={setTradeAction}>
-                <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="buy">Buy</TabsTrigger>
-                  <TabsTrigger value="sell">Sell</TabsTrigger>
-                </TabsList>
-              </Tabs>
+              <div className="flex items-center gap-2 p-0 rounded-md mt-1">
+                <Button 
+                  type="button"
+                  variant="outline"
+                  className={`flex-1 ${tradeAction === 'buy' ? 'bg-teal-100 dark:bg-teal-900 border-teal-500' : ''}`}
+                  onClick={() => setTradeAction('buy')}
+                >
+                  Buy
+                </Button>
+                <Button 
+                  type="button"
+                  variant="outline"
+                  className={`flex-1 ${tradeAction === 'sell' ? 'bg-teal-100 dark:bg-teal-900 border-teal-500' : ''}`}
+                  onClick={() => setTradeAction('sell')}
+                >
+                  Sell
+                </Button>
+              </div>
             </div>
             
             {/* Row 1: Instrument Type and Quantity side by side */}
@@ -174,14 +186,23 @@ const InvestPopupModal = ({ isOpen, onClose, stock }: InvestPopupModalProps) => 
               
               <div className="space-y-1">
                 <Label htmlFor="trading-mode">Trading Mode</Label>
-                <div className="flex items-center justify-between p-2 border rounded-md">
-                  <span className={`text-sm ${!isIntraday ? 'font-medium' : 'text-muted-foreground'}`}>Delivery</span>
-                  <Switch 
-                    id="trading-mode" 
-                    checked={isIntraday}
-                    onCheckedChange={setIsIntraday}
-                  />
-                  <span className={`text-sm ${isIntraday ? 'font-medium' : 'text-muted-foreground'}`}>Intraday</span>
+                <div className="flex items-center gap-2 p-0 rounded-md">
+                  <Button 
+                    type="button"
+                    variant="outline"
+                    className={`flex-1 ${!isIntraday ? 'bg-teal-100 dark:bg-teal-900 border-teal-500' : ''}`}
+                    onClick={() => setIsIntraday(false)}
+                  >
+                    Delivery
+                  </Button>
+                  <Button 
+                    type="button"
+                    variant="outline"
+                    className={`flex-1 ${isIntraday ? 'bg-teal-100 dark:bg-teal-900 border-teal-500' : ''}`}
+                    onClick={() => setIsIntraday(true)}
+                  >
+                    Intraday
+                  </Button>
                 </div>
               </div>
             </div>
