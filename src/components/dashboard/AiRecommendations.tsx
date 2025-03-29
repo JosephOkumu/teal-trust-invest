@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { TrendingUp, AlertCircle, Lightbulb } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { useState } from 'react';
+import InvestPopupModal from '@/components/modals/InvestPopupModal';
 
 const AiRecommendations = () => {
   // This would come from your API
@@ -15,7 +16,8 @@ const AiRecommendations = () => {
       confidence: 87,
       potentialReturn: '12.5%',
       trend: 'up',
-      analysis: 'Strong fundamentals with revenue growth from new markets in Ethiopia.'
+      analysis: 'Strong fundamentals with revenue growth from new markets in Ethiopia.',
+      price: 31.25 // Added price for the modal
     },
     {
       id: 2,
@@ -24,7 +26,8 @@ const AiRecommendations = () => {
       confidence: 76,
       potentialReturn: '8.2%',
       trend: 'up',
-      analysis: 'Expanding product line and strong brand presence across East Africa.'
+      analysis: 'Expanding product line and strong brand presence across East Africa.',
+      price: 165.25 // Added price for the modal
     },
     {
       id: 3,
@@ -33,14 +36,21 @@ const AiRecommendations = () => {
       confidence: 72,
       potentialReturn: '7.8%',
       trend: 'up',
-      analysis: 'Digital banking growth and regional expansion providing new revenue streams.'
+      analysis: 'Digital banking growth and regional expansion providing new revenue streams.',
+      price: 56.50 // Added price for the modal
     }
   ]);
 
+  // State for the invest modal
+  const [isInvestModalOpen, setIsInvestModalOpen] = useState(false);
+  const [selectedStock, setSelectedStock] = useState<any>(null);
+
   const openInvestModal = (stockId: number) => {
-    // This would trigger the investment modal
-    console.log(`Open investment modal for stock ID: ${stockId}`);
-    // You would implement the modal logic here
+    const stock = recommendations.find(stock => stock.id === stockId);
+    if (stock) {
+      setSelectedStock(stock);
+      setIsInvestModalOpen(true);
+    }
   };
 
   return (
@@ -132,6 +142,15 @@ const AiRecommendations = () => {
           </div>
         </div>
       </div>
+
+      {/* Invest Popup Modal */}
+      {selectedStock && (
+        <InvestPopupModal
+          isOpen={isInvestModalOpen}
+          onClose={() => setIsInvestModalOpen(false)}
+          stock={selectedStock}
+        />
+      )}
     </div>
   );
 };
