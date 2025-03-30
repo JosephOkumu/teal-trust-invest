@@ -13,6 +13,7 @@ import Investments from "./pages/Investments";
 import Invest from "./pages/Invest";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
+import CDSGuide from "./pages/CDSGuide";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/investments" element={<Investments />} />
             <Route path="/invest" element={<Invest />} />
             <Route path="/about" element={<About />} />
+            <Route path="/cds-guide" element={<CDSGuide />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

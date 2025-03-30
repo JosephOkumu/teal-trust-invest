@@ -181,9 +181,9 @@ const Register = () => {
           </div>
           <div className="text-xs text-muted-foreground mt-1">
             <span>Don't have CDS number? </span>
-            <a href="https://cdsckenya.com/getting-started/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-              Click here to get one
-            </a>
+            <Link to="/cds-guide" className="text-primary hover:underline">
+              Click here to learn how to get one
+            </Link>
           </div>
         </div>
 
