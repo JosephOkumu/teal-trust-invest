@@ -42,3 +42,56 @@ func SetupClient() (*hedera.Client, error) {
 	client.SetOperator(operatorID, operatorKey)
 	return client, nil
 }
+
+func CreateWallet(client *hedera.Client) (string, string, error) {
+	privateKey, err := hedera.GeneratePrivateKey()
+	if err != nil {
+		return "", "", err
+	}
+	publicKey := privateKey.PublicKey()
+
+	// Create a new account without specifying an initial balance
+	transaction, err := hedera.NewAccountCreateTransaction().
+		SetKey(publicKey).
+		Execute(client)
+	if err != nil {
+		return "", "", err
+	}
+
+	receipt, err := transaction.GetReceipt(client)
+	if err != nil {
+		return "", "", err
+	}
+
+	return receipt.AccountID.String(), privateKey.String(), nil
+}
+
+func SetUpTreasuryAccount(client *hedera.Client) (hedera.PrivateKey, hedera.AccountID){
+	// Generate Treasury Account Keys
+	treasuryPrivateKey, err := hedera.GeneratePrivateKey()
+	if err != nil {
+		log.Fatalf("Failed to generate treasury private key: %v", err)
+	}
+	treasuryPublicKey := treasuryPrivateKey.PublicKey()
+
+	// Create the Treasury Account
+	treasuryAccountTx, err := hedera.NewAccountCreateTransaction().
+		SetKey(treasuryPublicKey).
+		SetInitialBalance(hedera.HbarFromTinybar(1000)).
+		Execute(client)
+	if err != nil {
+		log.Fatalf("Failed to create treasury account: %v", err)
+	}
+
+	treasuryAccountReceipt, err := treasuryAccountTx.GetReceipt(client)
+	if err != nil {
+		log.Fatalf("Failed to get treasury account receipt: %v", err)
+	}
+
+	treasuryAccountID := *treasuryAccountReceipt.AccountID
+	fmt.Printf("Treasury Account Created: %s\n", treasuryAccountID)
+
+	return treasuryPrivateKey, treasuryAccountID
+}
+
+
