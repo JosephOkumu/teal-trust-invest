@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Eye, EyeOff, Mail, Lock, User, Phone } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, User, Phone, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -14,6 +14,7 @@ const Register = () => {
     lastName: '',
     email: '',
     phone: '',
+    cdsNumber: '',
     password: '',
     agreeToTerms: false
   });
@@ -161,6 +162,28 @@ const Register = () => {
               onChange={handleChange}
               required
             />
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="cdsNumber">CDS Number</Label>
+          <div className="relative">
+            <FileText className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
+            <Input
+              id="cdsNumber"
+              name="cdsNumber"
+              placeholder="Enter your CDS number"
+              className="pl-10"
+              value={formData.cdsNumber}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="text-xs text-muted-foreground mt-1">
+            <span>Don't have CDS number? </span>
+            <Link to="/cds-guide" className="text-primary hover:underline">
+              Click here to learn how to get one
+            </Link>
           </div>
         </div>
 
