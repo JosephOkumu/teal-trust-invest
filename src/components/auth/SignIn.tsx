@@ -17,18 +17,43 @@ const SignIn = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Simulate authentication
-    setTimeout(() => {
-      setIsLoading(false);
-      toast({
-        title: "Welcome back!",
-        description: "You've successfully signed in.",
-      });
-      // In a real app, you would redirect to the dashboard here
-    }, 1500);
-  };
   
+    try {
+      const response = await fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      if (response.ok) {
+        setIsLoading(false);
+        toast({
+          title: "Welcome back!",
+          description: "You've successfully signed in.",
+        });
+        // Redirect to the dashboard
+        window.location.href = "/dashboard";
+      } else {
+        const errorText = await response.text();
+        setIsLoading(false);
+        toast({
+          title: "Sign-in failed",
+          description: errorText,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      setIsLoading(false);
+      console.error("Error during sign-in:", error);
+      toast({
+        title: "Error",
+        description: "An error occurred. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
   return (
     <div className="rounded-xl border border-border bg-background p-8 shadow-sm max-w-md w-full mx-auto">
       <div className="mb-6 text-center">
