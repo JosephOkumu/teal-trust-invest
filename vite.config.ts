@@ -9,6 +9,9 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  preview: {
+    allowedHosts: ["teal-trust-invest.onrender.com"], // 👈 Allow this host
+  },
   plugins: [
     react(),
     mode === 'development' &&
