@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Switch } from '@/components/ui/switch';
 import { RefreshCw } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import detectEthereumProvider from '@metamask/detect-provider';
 
 interface InvestPopupModalProps {
   isOpen: boolean;
@@ -25,7 +26,8 @@ const InvestPopupModal = ({ isOpen, onClose, stock }: InvestPopupModalProps) => 
   const [paymentMethod, setPaymentMethod] = useState('mpesa');
   const [phoneNumber, setPhoneNumber] = useState('');
   
-  const handleInvest = (e: React.FormEvent) => {
+  
+  const handleInvest = async (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would integrate with your backend API
     console.log("Investment request:", { 
@@ -36,9 +38,37 @@ const InvestPopupModal = ({ isOpen, onClose, stock }: InvestPopupModalProps) => 
       validity,
       tradingMode: isIntraday ? 'intraday' : 'delivery'
     });
+
+        // Integrate MetaMask
+        const account: string | null = await connectToMetaMask();
+        if (account) {
+          // Example: Sending a mock transaction (replace with actual logic)
+          console.log('Processing transaction for account:', account);
     
+          // Example: Here, you can integrate further with blockchain logic
+        }
+ 
     // For demo, just move to confirmation step
     setStep(2);
+  };
+
+  const connectToMetaMask = async () => {
+    const provider = (await detectEthereumProvider()) as any;
+
+    if (!provider) {
+      console.error('MetaMask is not installed.');
+      return null;
+    }
+
+    try {
+      await provider.request({ method: 'eth_requestAccounts' });
+      const accounts: string[] = await provider.request({ method: 'eth_accounts' });
+      console.log('Connected account:', accounts[0]);
+      return accounts[0];
+    } catch (error) {
+      console.error('Error connecting to MetaMask:', error);
+      return null;
+    }
   };
   
   const resetAndClose = () => {
