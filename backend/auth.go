@@ -45,20 +45,25 @@ func registerHandler(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    // Hash the password
-    hashedPassword, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
-    if err != nil {
-        http.Error(w, "Failed to hash password", http.StatusInternalServerError)
-        return
-    }
-    user.Password = string(hashedPassword)
-
-    // Save the user to the database
-    result := db.Create(&user)
-    if result.Error != nil {
-        http.Error(w, "Failed to create user", http.StatusInternalServerError)
-        return
-    }
+     // Hash the password
+     hashedPassword, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
+     if err != nil {
+         http.Error(w, "Failed to hash password", http.StatusInternalServerError)
+         return
+     }
+     user.Password = string(hashedPassword)
+ 
+     // Save the user to the database
+     result := db.Create(&user)
+     if result.Error != nil {
+         // Check if the error is due to a UNIQUE constraint violation
+         if result.Error.Error() == "UNIQUE constraint failed: users.email" {
+             http.Error(w, "A user with this email already exists", http.StatusConflict)
+             return
+         }
+         http.Error(w, "Failed to create user", http.StatusInternalServerError)
+         return
+     }
 
     w.WriteHeader(http.StatusCreated)
     fmt.Fprintln(w, "User registered successfully")
