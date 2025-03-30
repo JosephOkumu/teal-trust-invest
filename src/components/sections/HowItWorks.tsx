@@ -1,87 +1,97 @@
 
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight, UserPlus, FileText, Search, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
 const steps = [
   {
     number: "01",
-    title: "Create Account",
-    description: "Sign up in minutes with just your email and phone number."
+    title: "Register",
+    description: "Create your account in minutes with just your email and phone number",
+    icon: <UserPlus className="h-6 w-6 text-teal-500" />
   },
   {
     number: "02",
-    title: "Fund Wallet",
-    description: "Deposit funds using M-Pesa or bank transfer securely."
+    title: "Create CDS Account",
+    description: "We'll help you set up your CDS account automatically through our platform",
+    icon: <FileText className="h-6 w-6 text-teal-500" />
   },
   {
     number: "03",
-    title: "Explore & Invest",
-    description: "Browse stocks and receive AI-powered recommendations."
+    title: "Browse Stocks",
+    description: "Explore available stocks with real-time data and AI insights",
+    icon: <Search className="h-6 w-6 text-teal-500" />
   },
   {
     number: "04",
-    title: "Track Performance",
-    description: "Monitor your portfolio's performance in real-time."
+    title: "Buy Stocks",
+    description: "Invest in your chosen stocks easily with M-Pesa",
+    icon: <ShoppingCart className="h-6 w-6 text-teal-500" />
   }
 ];
 
 const benefits = [
-  "No need for a CDS account",
-  "Lower fees than traditional brokers",
-  "AI-powered investment advice",
-  "Secure blockchain transactions"
+  "Start with just KES 100",
+  "No paperwork hassle",
+  "Instant M-Pesa deposits"
 ];
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="section bg-secondary/30 py-12 md:py-16">
-      <div className="container-custom">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6">
-            <div className="inline-block">
-              <span className="px-4 py-2 rounded-full bg-teal-500/10 text-teal-600 dark:text-teal-400 text-sm font-medium border border-teal-500/20">
-                Simple Process
-              </span>
-            </div>
+    <section id="how-it-works" className="section bg-secondary/30">
+      <div className="container-custom text-center">
+        <div className="max-w-3xl mx-auto mb-16">
+          <div className="inline-block mb-4">
+            <span className="px-4 py-2 rounded-full bg-teal-500/10 text-teal-600 dark:text-teal-400 text-sm font-medium border border-teal-500/20">
+              Simple Process
+            </span>
+          </div>
+          <h2 className="mb-4">Start Investing in 4 Easy Steps</h2>
+        </div>
+
+        <div className="relative max-w-5xl mx-auto">
+          {/* Timeline Steps */}
+          <div className="relative">
+            {/* Desktop Connection Line */}
+            <div className="hidden md:block absolute top-28 left-0 right-0 h-1 bg-gradient-to-r from-teal-500/20 via-teal-500 to-teal-500/20" />
             
-            <h2 className="text-2xl md:text-3xl font-bold">How KenyaStocks Works</h2>
-            
-            <div className="grid grid-cols-2 gap-4">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center space-x-2">
-                  <div className="w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center shrink-0">
-                    <Check className="h-3 w-3 text-white" />
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+              {steps.map((step, index) => (
+                <div key={index} className="relative flex flex-col items-center">
+                  {/* Circle with Icon */}
+                  <div className="relative mb-6">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 p-[2px]">
+                      <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
+                        {step.icon}
+                      </div>
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-teal-500 border-4 border-background flex items-center justify-center text-white text-sm font-bold">
+                      {step.number}
+                    </div>
                   </div>
-                  <span className="text-sm">{benefit}</span>
+                  
+                  {/* Step Content */}
+                  <h3 className="text-xl font-semibold mb-3 text-center">{step.title}</h3>
+                  <p className="text-muted-foreground text-center text-sm">{step.description}</p>
+                  
+                  {/* Mobile Arrow */}
+                  {index < steps.length - 1 && (
+                    <div className="md:hidden mt-6">
+                      <ArrowRight className="h-8 w-8 text-teal-500" />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
-            
+          </div>
+
+          {/* CTA Button */}
+          <div className="mt-12">
             <Link to="/register">
-              <Button className="btn-primary rounded-full px-6 py-2 text-base">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
+              <Button className="btn-primary rounded-full px-8 py-6 text-lg">
+                Get Started <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-4">
-            {steps.map((step, index) => (
-              <div 
-                key={index} 
-                className="bg-background rounded-xl border border-border p-4 flex flex-col card-hover"
-              >
-                <div className="mb-2">
-                  <div className="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-500 font-bold text-sm">
-                    {step.number}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-base font-semibold mb-1">{step.title}</h3>
-                  <p className="text-xs text-muted-foreground">{step.description}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
