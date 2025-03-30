@@ -19,15 +19,7 @@ import (
 var db *gorm.DB
 
 type User struct {
-<<<<<<< HEAD
-    ID        uint   `gorm:"primaryKey"`
-    FirstName string `json:"firstName"`
-    LastName  string `json:"lastName"`
-    Email     string `gorm:"unique" json:"email"`
-    Phone     string `json:"phone"`
     CDSNumber string `json:"cdsNumber"`
-    Password  string `json:"password"`
-=======
 	ID                  uint   `gorm:"primaryKey"`
 	FirstName           string `json:"firstName"`
 	LastName            string `json:"lastName"`
@@ -38,7 +30,6 @@ type User struct {
 	EncryptedPrivateKey string `json:"encryptedPrivateKey"`
 	Salt                string `json:"salt"`
 	SymmetricKey        string `json:"symmetricKey"`
->>>>>>> origin
 }
 
 func init() {
