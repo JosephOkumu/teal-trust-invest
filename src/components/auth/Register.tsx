@@ -31,29 +31,53 @@ const Register = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+  
     if (!formData.agreeToTerms) {
       toast({
         title: "Terms and Conditions",
         description: "Please agree to the terms and conditions to continue.",
-        variant: "destructive"
+        variant: "destructive",
       });
       return;
     }
-    
+  
     setIsLoading(true);
-    
-    // Simulate registration
-    setTimeout(() => {
-      setIsLoading(false);
-      toast({
-        title: "Registration successful!",
-        description: "Your account has been created. Welcome to KenyaStocks!",
+  
+    try {
+      const response = await fetch("http://localhost:8080/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-      // In a real app, you would redirect to verification page or dashboard
-    }, 1500);
+  
+      if (response.ok) {
+        setIsLoading(false);
+        toast({
+          title: "Registration successful!",
+          description: "Your account has been created. Welcome to KenyaStocks!",
+        });
+        // Redirect to the dashboard or login page
+      } else {
+        const errorText = await response.text();
+        setIsLoading(false);
+        toast({
+          title: "Registration failed",
+          description: errorText,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      setIsLoading(false);
+      console.error("Error during registration:", error);
+      toast({
+        title: "Error",
+        description: "An error occurred. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
-
   return (
     <div className="rounded-xl border border-border bg-background p-8 shadow-sm max-w-md w-full mx-auto">
       <div className="mb-6 text-center">
