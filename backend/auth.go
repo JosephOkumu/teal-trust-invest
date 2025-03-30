@@ -20,6 +20,7 @@ type User struct {
     LastName  string `json:"lastName"`
     Email     string `gorm:"unique" json:"email"`
     Phone     string `json:"phone"`
+    CDSNumber string `json:"cdsNumber"`
     Password  string `json:"password"`
 }
 
