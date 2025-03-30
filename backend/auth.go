@@ -69,9 +69,46 @@ func registerHandler(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintln(w, "User registered successfully")
 }
 
+func loginHandler(w http.ResponseWriter, r *http.Request) {
+    if r.Method != http.MethodPost {
+        http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
+        return
+    }
+
+    var credentials struct {
+        Email    string `json:"email"`
+        Password string `json:"password"`
+    }
+
+    err := json.NewDecoder(r.Body).Decode(&credentials)
+    if err != nil {
+        http.Error(w, "Invalid request body", http.StatusBadRequest)
+        return
+    }
+
+    var user User
+    result := db.Where("email = ?", credentials.Email).First(&user)
+    if result.Error != nil {
+        http.Error(w, "Invalid email or password", http.StatusUnauthorized)
+        return
+    }
+
+    // Compare the provided password with the hashed password
+    err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(credentials.Password))
+    if err != nil {
+        http.Error(w, "Invalid email or password", http.StatusUnauthorized)
+        return
+    }
+
+    // If successful, return a success response
+    w.WriteHeader(http.StatusOK)
+    fmt.Fprintln(w, "Login successful")
+}
+
 func main() {
     mux := http.NewServeMux()
     mux.HandleFunc("/register", registerHandler)
+    mux.HandleFunc("/login", loginHandler)
 
     // Enable CORS
     handler := cors.Default().Handler(mux)
