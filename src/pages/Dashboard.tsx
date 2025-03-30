@@ -37,18 +37,44 @@ const Dashboard = () => {
             Dashboard Overview
           </h1>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <PortfolioSnapshot />
-            <AiRecommendations />
-          </div>
-          
-          <div className="mt-8">
-            <ActivePositions />
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            <MarketSentiment />
-            <AlertsActivity />
+          {/* Main Dashboard Sections */}
+          <div className="space-y-8">
+            {/* Portfolio Overview Section */}
+            <section>
+              <h2 className="text-xl font-semibold mb-4 text-teal-500 dark:text-teal-400 flex items-center">
+                <span className="mr-2">📊</span> Portfolio Overview
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <PortfolioSnapshot />
+                <MarketSentiment />
+              </div>
+            </section>
+            
+            {/* AI Insights Section */}
+            <section className="bg-gradient-to-r from-teal-50 to-blue-50 dark:from-teal-950/30 dark:to-blue-950/30 p-6 rounded-lg border border-teal-100 dark:border-teal-900">
+              <h2 className="text-xl font-semibold mb-4 text-teal-500 dark:text-teal-400 flex items-center">
+                <span className="mr-2">🤖</span> AI-Powered Insights
+              </h2>
+              <AiRecommendations />
+            </section>
+            
+            {/* Active Investments Section */}
+            <section>
+              <h2 className="text-xl font-semibold mb-4 text-teal-500 dark:text-teal-400 flex items-center">
+                <span className="mr-2">💼</span> Your Investments
+              </h2>
+              <ActivePositions />
+            </section>
+            
+            {/* Activity & Alerts Section */}
+            <section>
+              <h2 className="text-xl font-semibold mb-4 text-teal-500 dark:text-teal-400 flex items-center">
+                <span className="mr-2">🔔</span> Recent Activity
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1">
+                <AlertsActivity />
+              </div>
+            </section>
           </div>
         </div>
       </main>

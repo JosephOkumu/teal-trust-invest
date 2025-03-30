@@ -20,7 +20,7 @@ import {
   InfoIcon, 
   Clock 
 } from "lucide-react";
-import InvestModal from "@/components/modals/InvestModal";
+import InvestPopupModal from "@/components/modals/InvestPopupModal";
 
 const Invest = () => {
   const [selectedStock, setSelectedStock] = useState<any>(null);
@@ -359,7 +359,7 @@ const Invest = () => {
       </main>
       
       {/* Investment Modal */}
-      <InvestModal 
+      <InvestPopupModal 
         isOpen={showInvestModal} 
         onClose={() => setShowInvestModal(false)} 
         stock={selectedStock} 
