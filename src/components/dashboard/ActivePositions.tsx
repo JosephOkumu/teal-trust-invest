@@ -4,6 +4,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { TrendingUp, TrendingDown, Eye, Wallet, RefreshCw, Filter } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import WithdrawModal from '@/components/modals/WithdrawModal';
 import StockDetailModal from '@/components/modals/StockDetailModal';
 import InvestModal from '@/components/modals/InvestModal';
@@ -77,90 +84,96 @@ const ActivePositions = () => {
 
   return (
     <Card>
-      <CardHeader className="py-4">
+      <CardHeader>
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
           <div>
-            <CardTitle className="text-lg text-teal-500 dark:text-teal-400">Active Positions</CardTitle>
-            <CardDescription className="text-xs">Currently held investments</CardDescription>
+            <CardTitle className="text-xl text-teal-500 dark:text-teal-400">Active Positions</CardTitle>
+            <CardDescription>Currently held investments</CardDescription>
           </div>
-          <div className="flex gap-2 mt-2 sm:mt-0">
-            <Button variant="outline" size="sm" className="flex gap-1 items-center h-7 text-xs">
-              <Filter size={12} />
+          <div className="flex gap-2 mt-4 sm:mt-0">
+            <Button variant="outline" size="sm" className="flex gap-1 items-center">
+              <Filter size={14} />
               <span>Filter</span>
             </Button>
-            <Button variant="outline" size="sm" className="flex gap-1 items-center h-7 text-xs">
-              <RefreshCw size={12} />
+            <Button variant="outline" size="sm" className="flex gap-1 items-center">
+              <RefreshCw size={14} />
               <span>Refresh</span>
             </Button>
           </div>
         </div>
       </CardHeader>
       <CardContent>
-        <div className="overflow-x-auto -mx-2 px-2">
+        <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="text-xs">Stock</TableHead>
-                <TableHead className="text-right text-xs">Quantity</TableHead>
-                <TableHead className="text-right text-xs">Buy Price</TableHead>
-                <TableHead className="text-right text-xs">Current</TableHead>
-                <TableHead className="text-right text-xs">P/L</TableHead>
-                <TableHead className="text-xs">Actions</TableHead>
+                <TableHead>Stock</TableHead>
+                <TableHead className="text-right">Quantity</TableHead>
+                <TableHead className="text-right">Buy Price</TableHead>
+                <TableHead className="text-right">Current Price</TableHead>
+                <TableHead className="text-right">P/L</TableHead>
+                <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {investments.map((investment) => (
                 <TableRow key={investment.id}>
-                  <TableCell className="py-2">
+                  <TableCell className="font-medium">
                     <div>
-                      <div className="font-semibold text-sm">{investment.symbol}</div>
-                      <div className="text-[10px] text-muted-foreground">{investment.name}</div>
+                      <div className="font-semibold">{investment.symbol}</div>
+                      <div className="text-xs text-muted-foreground">{investment.name}</div>
                     </div>
                   </TableCell>
-                  <TableCell className="text-right text-xs py-2">{investment.quantity}</TableCell>
-                  <TableCell className="text-right text-xs py-2">KSh {investment.buyPrice.toFixed(2)}</TableCell>
-                  <TableCell className="text-right text-xs py-2">KSh {investment.currentPrice.toFixed(2)}</TableCell>
-                  <TableCell className="text-right py-2">
+                  <TableCell className="text-right">{investment.quantity}</TableCell>
+                  <TableCell className="text-right">KSh {investment.buyPrice.toFixed(2)}</TableCell>
+                  <TableCell className="text-right">KSh {investment.currentPrice.toFixed(2)}</TableCell>
+                  <TableCell className="text-right">
                     <div className={`flex flex-col items-end ${
                       investment.profit >= 0 ? 'text-green-500' : 'text-red-500'
                     }`}>
-                      <div className="flex items-center text-xs">
+                      <div className="flex items-center">
                         {investment.profit >= 0 ? 
                           <TrendingUp className="w-3 h-3 mr-1" /> : 
                           <TrendingDown className="w-3 h-3 mr-1" />
                         }
                         {investment.profit >= 0 ? '+' : ''}{investment.profitPercent}%
                       </div>
-                      <div className="text-[10px]">
+                      <div className="text-xs">
                         {investment.profit >= 0 ? '+' : ''}KSh {investment.profit.toLocaleString()}
                       </div>
                     </div>
                   </TableCell>
-                  <TableCell className="py-2">
+                  <TableCell>
                     <div className="flex space-x-1">
                       <Button 
                         variant="ghost" 
-                        size="icon" 
+                        size="sm" 
                         onClick={() => openDetailModal(investment)}
-                        className="h-6 w-6"
+                        className="flex items-center gap-1 h-8"
+                        title="View details"
                       >
-                        <Eye className="h-3 w-3" />
+                        <Eye className="h-4 w-4" />
+                        <span className="hidden sm:inline text-xs">View</span>
                       </Button>
                       <Button 
                         variant="ghost" 
-                        size="icon" 
+                        size="sm" 
                         onClick={() => openWithdrawModal(investment)}
-                        className="h-6 w-6"
+                        className="flex items-center gap-1 h-8"
+                        title="Withdraw funds"
                       >
-                        <Wallet className="h-3 w-3" />
+                        <Wallet className="h-4 w-4" />
+                        <span className="hidden sm:inline text-xs">Withdraw</span>
                       </Button>
                       <Button 
                         variant="ghost" 
-                        size="icon" 
+                        size="sm" 
                         onClick={() => openInvestModal(investment)}
-                        className="h-6 w-6"
+                        className="flex items-center gap-1 h-8"
+                        title="Reinvest"
                       >
-                        <RefreshCw className="h-3 w-3" />
+                        <RefreshCw className="h-4 w-4" />
+                        <span className="hidden sm:inline text-xs">Reinvest</span>
                       </Button>
                     </div>
                   </TableCell>
@@ -171,8 +184,8 @@ const ActivePositions = () => {
         </div>
 
         <div className="mt-4 text-center">
-          <Button variant="outline" size="sm" className="mr-2 text-xs h-7">View Past Investments</Button>
-          <Button className="bg-teal-500 hover:bg-teal-600 text-white text-xs h-7">Explore New Stocks</Button>
+          <Button variant="outline" className="mr-2">View Past Investments</Button>
+          <Button className="bg-teal-500 hover:bg-teal-600 text-white">Explore New Stocks</Button>
         </div>
       </CardContent>
 

@@ -59,12 +59,12 @@ const AlertsActivity = () => {
   ]);
 
   return (
-    <Card className="h-full">
-      <CardHeader className="py-4">
+    <Card>
+      <CardHeader>
         <CardTitle className="text-xl text-teal-500 dark:text-teal-400">Alerts & Activity</CardTitle>
         <CardDescription>Important updates and recent transactions</CardDescription>
       </CardHeader>
-      <CardContent className="p-0 max-h-[350px] overflow-y-auto">
+      <CardContent className="p-0">
         <Tabs defaultValue="alerts">
           <TabsList className="w-full grid grid-cols-2 rounded-none border-b">
             <TabsTrigger value="alerts" className="rounded-none data-[state=active]:border-b-2 data-[state=active]:border-teal-500">
@@ -80,18 +80,18 @@ const AlertsActivity = () => {
               {alerts.map(alert => (
                 <div 
                   key={alert.id} 
-                  className={`p-3 hover:bg-muted/50 transition-colors ${!alert.isRead ? 'bg-muted/20' : ''}`}
+                  className={`p-4 hover:bg-muted/50 transition-colors ${!alert.isRead ? 'bg-muted/20' : ''}`}
                 >
-                  <div className="flex items-start gap-2">
+                  <div className="flex items-start gap-3">
                     <div className="mt-1">
-                      <Bell className="h-4 w-4 text-teal-500" />
+                      <Bell className="h-5 w-5 text-teal-500" />
                     </div>
                     <div className="flex-1">
                       <h4 className={`text-sm font-medium ${!alert.isRead ? 'text-teal-600 dark:text-teal-400' : ''}`}>
                         {alert.title}
                       </h4>
                       <p className="text-xs text-muted-foreground mt-1">{alert.description}</p>
-                      <div className="flex items-center mt-1 text-xs text-muted-foreground">
+                      <div className="flex items-center mt-2 text-xs text-muted-foreground">
                         <Clock className="h-3 w-3 mr-1" />
                         {alert.time}
                       </div>
@@ -110,11 +110,11 @@ const AlertsActivity = () => {
               {activities.map(activity => (
                 <div 
                   key={activity.id} 
-                  className="p-3 hover:bg-muted/50 transition-colors"
+                  className="p-4 hover:bg-muted/50 transition-colors"
                 >
-                  <div className="flex items-start gap-2">
+                  <div className="flex items-start gap-3">
                     <div className="mt-1">
-                      <ArrowDownUp className={`h-4 w-4 ${
+                      <ArrowDownUp className={`h-5 w-5 ${
                         activity.type === 'buy' 
                           ? 'text-green-500' 
                           : activity.type === 'withdraw' 
@@ -125,7 +125,7 @@ const AlertsActivity = () => {
                     <div>
                       <h4 className="text-sm font-medium">{activity.title}</h4>
                       <p className="text-xs text-muted-foreground mt-1">{activity.description}</p>
-                      <div className="flex items-center mt-1 text-xs text-muted-foreground">
+                      <div className="flex items-center mt-2 text-xs text-muted-foreground">
                         <Clock className="h-3 w-3 mr-1" />
                         {activity.time}
                       </div>
@@ -137,7 +137,7 @@ const AlertsActivity = () => {
           </TabsContent>
         </Tabs>
       </CardContent>
-      <CardFooter className="border-t border-border py-2 justify-center">
+      <CardFooter className="border-t border-border py-3 justify-center">
         <Button variant="link" size="sm" className="text-teal-500">
           View All
         </Button>
