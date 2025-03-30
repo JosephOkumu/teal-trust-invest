@@ -52,9 +52,6 @@ const HowItWorks = () => {
         <div className="relative max-w-5xl mx-auto">
           {/* Timeline Steps */}
           <div className="relative">
-            {/* Desktop Connection Line */}
-            <div className="hidden md:block absolute top-28 left-0 right-0 h-1 bg-gradient-to-r from-teal-500/20 via-teal-500 to-teal-500/20" />
-            
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
               {steps.map((step, index) => (
                 <div key={index} className="relative flex flex-col items-center">
