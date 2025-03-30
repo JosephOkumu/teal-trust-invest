@@ -74,11 +74,9 @@ func registerHandler(w http.ResponseWriter, r *http.Request) {
 
 	user.Hederawallet = user1AccountId
 
-	password := "my-secure-password"
-
 	// Derive a secure key using PBKDF2
 	salt := utils.GenerateSalt(16) // Generate a random salt
-	symmetricKey := pbkdf2.Key([]byte(password), salt, 100000, 32, sha256.New)
+	symmetricKey := pbkdf2.Key([]byte(hashedPassword), salt, 100000, 32, sha256.New)
 
 	// Encrypt the private key
 	encryptedKey, err := wallet.Encrypt(userPrivateKey, symmetricKey)
