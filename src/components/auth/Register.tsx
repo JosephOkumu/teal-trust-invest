@@ -59,6 +59,16 @@ const Register = () => {
           description: "Your account has been created. Welcome to KenyaStocks!",
         });
         // Redirect to the dashboard or login page
+    } else if (response.status === 409) {
+      // Handle "user already exists" error
+      const errorText = await response.text();
+      setIsLoading(false);
+      toast({
+        title: "Registration failed",
+        description: errorText, // Display the error message from the backend
+        variant: "destructive",
+      });
+        // Redirect to the dashboard or login page
       } else {
         const errorText = await response.text();
         setIsLoading(false);
