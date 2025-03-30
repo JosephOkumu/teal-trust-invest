@@ -1,4 +1,5 @@
 ### **Teal Trust White Paper**
+[Site](https://teal-trust-invest.onrender.com/invest)
 
 #### **Abstract**
 Teal Trust is a decentralized platform that leverages the Hedera Hashgraph network to provide a secure, transparent, and efficient environment for asset tokenization and fractional investments. Designed to address inefficiencies in traditional financial systems, Teal Trust enables fractional ownership, seamless trading, and transparent asset management through high-performance infrastructure and smart contract technology. This white paper outlines the vision, technical architecture, and applications of Teal Trust, which aims to redefine tokenization and investment accessibility.
