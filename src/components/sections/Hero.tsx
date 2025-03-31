@@ -66,11 +66,11 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="relative animate-float">
-            <div className="relative z-10">
-              <img 
-                src="https://images.unsplash.com/photo-1642790305523-5843a4806772?q=80&w=1000" 
-                alt="Trading Dashboard" 
+          <div className="relative flex items-start">
+            <div className="relative z-10 w-[140%]">
+              <img
+                src="/tradingdash.jpg"
+                alt="Trading Dashboard"
                 className="w-full h-auto rounded-2xl shadow-2xl border border-white/10"
               />
             </div>
@@ -80,7 +80,7 @@ const Hero = () => {
             <div className="absolute -bottom-6 -left-6 w-20 h-20 md:w-28 md:h-28 bg-teal-400/20 rounded-full blur-xl -z-1" />
             
             {/* Stats card */}
-            <div className="absolute -bottom-6 md:-bottom-10 -right-6 md:-right-10 glass-card rounded-xl p-4 shadow-lg animate-slide-in-top [animation-delay:500ms]">
+            <div className="glass-card rounded-xl p-4 shadow-lg animate-slide-in-top [animation-delay:500ms] ml-4">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center">
                   <TrendingUp className="h-6 w-6 text-green-500" />
