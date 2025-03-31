@@ -12,9 +12,9 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2 text-foreground">
               <div className="w-10 h-10 rounded-full bg-gradient-to-r from-teal-500 to-teal-400 flex items-center justify-center">
-                <span className="text-white font-bold text-xl">K</span>
+                <span className="text-white font-bold text-xl">T</span>
               </div>
-              <span className="font-bold text-xl">KenyaStocks</span>
+              <span className="font-bold text-xl">Teal Trust</span>
             </div>
             <p className="text-muted-foreground">
               Revolutionizing stock trading in Kenya with AI-powered insights and blockchain security.
