@@ -47,9 +47,13 @@ const InvestPopupModal = ({ isOpen, onClose, stock }: InvestPopupModalProps) => 
     
           // Example: Here, you can integrate further with blockchain logic
         }
+
+        
  
     // For demo, just move to confirmation step
     setStep(2);
+
+    // 
   };
 
   const connectToMetaMask = async () => {
