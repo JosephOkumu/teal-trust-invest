@@ -47,7 +47,7 @@ const About = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="relative z-10 overflow-hidden rounded-2xl border border-border">
                   <img 
-                    src="/kenyantrader.png" 
+                    src="/kenyantrader.jpg" 
                     alt="Kenyan Stock Market Team" 
                     className="w-full h-auto"
                   />

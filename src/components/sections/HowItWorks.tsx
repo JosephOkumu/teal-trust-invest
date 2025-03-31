@@ -6,15 +6,15 @@ import { Link } from 'react-router-dom';
 const steps = [
   {
     number: "01",
-    title: "Register",
-    description: "Create your account in minutes with just your email and phone number",
-    icon: <UserPlus className="h-6 w-6 text-teal-500" />
-  },
-  {
-    number: "02",
     title: "Create CDS Account",
     description: "We'll help you set up your CDS account automatically through our platform",
     icon: <FileText className="h-6 w-6 text-teal-500" />
+  },
+  {
+    number: "02",
+    title: "Register",
+    description: "Create your account in minutes with just your email and phone number",
+    icon: <UserPlus className="h-6 w-6 text-teal-500" />
   },
   {
     number: "03",
@@ -24,8 +24,8 @@ const steps = [
   },
   {
     number: "04",
-    title: "Buy Stocks",
-    description: "Invest in your chosen stocks easily with M-Pesa",
+    title: "Invest",
+    description: "Invest in your chosen stocks easily with M-Pesa/Crypto",
     icon: <ShoppingCart className="h-6 w-6 text-teal-500" />
   }
 ];
