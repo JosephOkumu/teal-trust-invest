@@ -65,9 +65,9 @@ const Header = ({ isLoggedIn = false }: HeaderProps) => {
         {/* Logo */}
         <Link to={isLoggedIn ? "/dashboard" : "/"} className="flex items-center space-x-2 text-foreground">
           <div className="w-10 h-10 rounded-full bg-gradient-to-r from-teal-500 to-teal-400 flex items-center justify-center">
-            <span className="text-white font-bold text-xl">K</span>
+            <span className="text-white font-bold text-xl">T</span>
           </div>
-          <span className="font-bold text-xl hidden sm:inline-block">KenyaStocks</span>
+          <span className="font-bold text-xl hidden sm:inline-block">Teal Trust</span>
         </Link>
 
         {/* Desktop Navigation - Different based on login state */}
