@@ -88,40 +88,27 @@ Ensure you have the following installed:
 - [Go]()(go 1.23.4)
 
 ### Installation
-
+- Ensure you have updated your node before proceeding
 1. Clone the repository:
 
    ```bash
    git clone https://github.com/JosephOkumu/teal-trust-invest.git
    cd teal-trust-wallet
-
-2. Install dependencies:
-    ```bash
-     npm install
-    ```
-3. Set up your .env file in the folder `backend`
-    ```
-     HEDERA_CLIENT_ID=YOUR_HEDERA_CLIENT_ID
-     HEDERA_PRIVATE_KEY=YOUR_HEDERA_PRIVATE_KEY
-
-    ```
-4. Start the development server in the root folder:
-    ```bash
-     npm run dev
-     ```
-    Open your browser and navigate to `http://localhost:3000`.
-5. Start the backend server in the `backend` folder:
-    ```
-    go run .
-    ```
-### Or
-- After cloning
-
-   ```bash
-   cd teal-trust-wallet
    ```
-- Run ./build.sh
-- Run ./start.sh
+##### node update process
+2. ```bash
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+   source ~/.bashrc
+   nvm install 18
+   nvm use 18
+   ```
+3. Run scripts
+```bash
+   ./build.sh
+```
+```bash
+   ./start.sh
+```
 
 ## Technologies Used
 
