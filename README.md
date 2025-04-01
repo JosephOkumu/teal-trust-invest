@@ -18,16 +18,21 @@ Leveraging the speed, security, and low environmental impact of Hedera Hashgraph
 1. **Fractional Investments and Tokenization**
    - Tokenize assets to allow fractional ownership, enabling smaller investors to access high-value stocks and other assets.
    - Democratize investments by lowering the entry barrier to traditionally exclusive markets such as real estate, art, and venture capital.
+  
+2. **AI-Powered Trading Assistant**
 
-2. **High-Performance Trading Infrastructure**
+   - Initial prototype of an AI-powered trading assistant designed to provide traders with market insights and recommendations.
+   - Future iterations will integrate Hedera’s decentralized infrastructure to enhance real-time data processing.
+
+3. **High-Performance Trading Infrastructure**
    - Utilize high-speed networks and cloud computing to handle large trade volumes with minimal latency.
    - Ensure redundancy and fault tolerance to guarantee uptime and reliability for critical trading operations.
 
-3. **Smart Contracts for Market Efficiency**
+4. **Smart Contracts for Market Efficiency**
    - Automate processes such as trade settlement, dividend distribution, and compliance checks using Hedera’s smart contract layer.
    - Reduce settlement delays and high transaction fees that plague traditional markets, increasing overall market efficiency.
 
-4. **Transparent Treasury Management**
+5. **Transparent Treasury Management**
    - Provide tools for real-time monitoring and auditing of tokenized treasuries, ensuring transparency for all stakeholders.
 
 ---
