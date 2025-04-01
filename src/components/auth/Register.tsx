@@ -60,6 +60,7 @@ const Register = () => {
           description: "Your account has been created. Welcome to KenyaStocks!",
         });
         // Redirect to the dashboard or login page
+        window.location.href = "/signin"
     } else if (response.status === 409) {
       // Handle "user already exists" error
       const errorText = await response.text();

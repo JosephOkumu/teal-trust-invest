@@ -114,6 +114,14 @@ Ensure you have the following installed:
     ```
     go run .
     ```
+### Or
+- After cloning
+
+   ```bash
+   cd teal-trust-wallet
+   ```
+- Run ./build.sh
+- Run ./start.sh
 
 ## Technologies Used
 
